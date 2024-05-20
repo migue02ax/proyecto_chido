@@ -15,7 +15,6 @@
 </head>
 
 <body>
-
     <!-- Titulos y asi -->
     <div id="navbar" class="navbar-fixed scrollspy">
         <nav class="black">
