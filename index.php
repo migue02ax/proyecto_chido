@@ -264,6 +264,41 @@
         ?>
     </div>
 
+
+    <!-- poniendo el footer -->
+    <footer class="page-footer red  lighten-1">
+
+        <div class="footer-copyright">
+            <div class="container">
+                <p>Copyright © Gorditas de Nata Production</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nos funciona para que abran las imagenes, bueno su descripcion -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.materialboxed').materialbox();
+            $('.button-collapse').sideNav();
+
+        });
+    </script>
+    <script>
+        $('.head-link').click(function (e) {
+            e.preventDefault();
+
+            var goto = $(this).attr('href');
+
+            $('html, body').animate({
+                scrollTop: $(goto).offset().top
+            }, 800);
+        });
+
+    </script>
+
 </body>
 
 </html>
