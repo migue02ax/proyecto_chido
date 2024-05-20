@@ -199,6 +199,71 @@
     </div>
 
 
+
+    <!-- metiendo el read -->
+    <?php
+    include ("conexion.php");
+
+    $sql = "select * from usuarios";
+    $resultado = mysqli_query($conexion, $sql);
+    ?>
+
+    <div>
+        <h1>Tabla de Seguidores</h1>
+        <h4>Quieres formar parte de esta gran familia? Haz clic aqui! </h4>
+        <div class="center">
+            <button class="waves-effect waves-light btn red lighten-1"><a href="agregar.php">Aqui</a></button><br><br>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nombre</th>
+                    <th>Contrasenia</th>
+                    <th>Email</th>
+                    <th>Numero</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                while ($filas = mysqli_fetch_assoc($resultado)) {
+                    ?>
+                    <tr>
+                        <td>
+                            <?php echo $filas['id'] ?>
+                        </td>
+                        <td>
+                            <?php echo $filas['nombre'] ?>
+                        </td>
+                        <td>
+                            <?php echo $filas['pass'] ?>
+                        </td>
+                        <td>
+                            <?php echo $filas['email'] ?>
+                        </td>
+                        <td>
+                            <?php echo $filas['numero'] ?>
+                        </td>
+                        <td>
+
+                            <button>
+                                <?php echo "<a href='eliminar.php?id=" . $filas['id'] . "'> ELIMINAR </a>"; ?>
+                            </button>
+
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+
+            </tbody>
+        </table>
+        <?php
+        mysqli_close($conexion);
+        ?>
+    </div>
+
 </body>
 
 </html>
